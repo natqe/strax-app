@@ -1,0 +1,48 @@
+:root{
+    direction: ltr;
+}
+
+.alert-above{
+    position:fixed !important;
+    top: 90px;
+    left: 60px;
+    z-index:10000;
+}
+.button-nav li a{
+    border-radius: 15%;
+}
+.margin-nav-cms{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.cms-nav-right{
+    position: absolute;
+    right: 0px;
+}
+.top-0{
+    top:0px;
+}
+
+@media screen and (max-width: 767px){
+    .center-logo{
+        line-height: 24px;
+    }
+}
+.menu-cms-a li a:hover{
+  color: #454545;  
+}
+.padding-top-0{
+    padding-top: 0px;
+}
+.navbar-cms{
+    height: 30px;
+    transition: all 0.1s ease-out 0s;
+    -webkit-transition: all 0.1s ease-out 0s;
+    -moz-transition: all 0.1s ease-out 0s;
+    -ms-transition: all 0.1s ease-out 0s;
+    -o-transition: all 0.1s ease-out 0s;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 11px;
+    text-transform: uppercase;
+}
