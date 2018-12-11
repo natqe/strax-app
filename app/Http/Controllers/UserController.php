@@ -34,11 +34,12 @@ class UserController extends MainController {
 
     public function postSignin(SigninRequest $request) {
         $rd=!empty($request['rd'])?$request['rd']:'';
+        dd($request);
         if (User::verifyUser($request)) {
             return redirect($rd);
         } else {
             self::$data['title'] = 'Sign-in';
-            return redirect($rd)->withErrors('Wrong email/password combination' + $request['log_password']);
+            return redirect($rd)->withErrors('Wrong email/password combination');
         }
     }
 
