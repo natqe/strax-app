@@ -34,7 +34,6 @@ class UserController extends MainController {
 
     public function postSignin(SigninRequest $request) {
         $rd=!empty($request['rd'])?$request['rd']:'';
-        dd(User::verifyUser($request));
         if (User::verifyUser($request)) {
             return redirect($rd);
         } else {
