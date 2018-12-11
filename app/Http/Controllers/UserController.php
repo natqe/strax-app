@@ -38,7 +38,7 @@ class UserController extends MainController {
             return redirect($rd);
         } else {
             self::$data['title'] = 'Sign-in';
-            return redirect($rd)->withErrors('Wrong email/password combination');
+            return redirect($rd)->withErrors('Wrong email/password combination' + $request['log_password']);
         }
     }
 
