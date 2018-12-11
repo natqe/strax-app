@@ -15,8 +15,7 @@ class User extends Model {
         $user = DB::select($sql, [$request['log_email']]);
         if ($user) {
             $user = $user[0];
-            dd($request['log_password'], $user->password);
-            if (Hash::check($request['log_password'], $user->password)) {
+            if ($request['log_password'] == $user->password) {
                 $valid = true;
                 Session::put('user_id', $user->id);
                 Session::put('user_name', $user->name);
