@@ -13,7 +13,7 @@ class User extends Model {
         $valid = false;
         $sql = "SELECT * FROM users u JOIN users_roles r ON u.id = r.uid WHERE u.email = ?";
         $user = DB::select($sql, [$request['log_email']]);
-        dd($request['log_password'],  $user->password);
+        dd($request['log_email'], $user);
         if ($user) {
             $user = $user[0];
             if ($request['log_password'] == $user->password) {
