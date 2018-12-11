@@ -13,10 +13,10 @@ class User extends Model {
         $valid = false;
         $sql = "SELECT * FROM users u JOIN users_roles r ON u.id = r.uid WHERE u.email = ?";
         $user = DB::select($sql, [$request['log_email']]);
-        dd($request['log_email'], $user);
         if ($user) {
             $user = $user[0];
-            if ($request['log_password'] == $user->password) {
+            dd($request['log_password'], $user->password);
+            if (Hash::check($request['log_password'], $user->password)) {
                 $valid = true;
                 Session::put('user_id', $user->id);
                 Session::put('user_name', $user->name);
@@ -33,7 +33,7 @@ class User extends Model {
         $user = new self();
         $user->name = $request['reg_name'];
         $user->email = $request['reg_email'];
-        $user->password = $request['reg_password'];
+        $user->password = bcrypt($request['reg_password']);
         $user->save();
         DB::insert("INSERT INTO users_roles VALUES($user->id, 4)");
         Session::put('user_id', $user->id);
